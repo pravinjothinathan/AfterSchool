@@ -14,6 +14,12 @@ public class PassTriangle {
 		public int getValue() {
 			return value;
 		}
+		
+		public Node(int value){
+			this.lptr = null;
+			this.rptr = null;
+			this.value = value;
+		}
 
 		public Node(Node lptr, Node rptr, int value){
 			this.lptr = lptr;
@@ -57,7 +63,7 @@ public class PassTriangle {
 		for (String string : inputs) {
 			if(root==null){
 				//first node - do nothing
-				Node temp = new Node(null, null, Integer.parseInt(string.trim()));
+				Node temp = new Node(Integer.parseInt(string.trim()));
 				root = temp;
 				list.add(temp);
 			}else{
