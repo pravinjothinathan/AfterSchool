@@ -31,12 +31,12 @@ class NumberPicker {
    * @return
    */
   private int valueOfListImpl(List<Integer> input) {
-    if (/* TODO 1: Detect empty list */ implementBoolean()) {
+    if (input.size()==0) {
       // If the list is empty, you get 0 points
-      0
-    } else if (/* TODO 2: Detect list having only one element */ implementBoolean()) {
+      return 0
+    } else if (input.size()==1) {
       // If the list has one element, you get the points from that element
-      /* TODO 3: Return points from the list */ implementInt()
+      return input[0]
     } else {
       // If the list is larger, compute it's value.
       /*
@@ -45,10 +45,11 @@ class NumberPicker {
        * Left tail is whatever is left of the list when you remove the left head.
        * Right tail is whatever is left of the list when you remove the right head.
        */
-      int leftHead = /* TODO 4: Figure out the left head */ implementInt()
-      List<Integer> leftTail = /* TODO 5: Figure out the left tail */ implementList()
-      int rightHead = /* TODO 6: Figure out the right head */ implementInt()
-      List<Integer> rightTail = /* TODO 7: Figure out the right tail */ implementList()
+	  int size = input.size()
+      int leftHead = input[0]
+      List<Integer> leftTail = input[1..size-1]
+      int rightHead = input[size -1]
+      List<Integer> rightTail = input[0..size-2]
 
       int headVal = leftHead - valueOfList(leftTail)
       int tailVal = rightHead - valueOfList(rightTail)
@@ -63,7 +64,8 @@ class NumberPicker {
    * @return The result of the game
    */
   public Result findWinner(List<Integer> input) {
-    int firstPlayerValue = /* TODO 8: Find the value of the list to the first player */ implementInt()
+	  valueOfListClosure = input
+    int firstPlayerValue = 
     if (/* TODO 9: Find out when the first player wins */ implementBoolean()) {
       Result.Win
     } else if (/* TODO 10: Find out when the first player loses */ implementBoolean()) {
@@ -79,17 +81,5 @@ class NumberPicker {
   }
 
   private final valueOfList = valueOfListClosure.memoize()
-
-  boolean /* TODO 11: This method should have no users. Remove it. */ implementBoolean() {
-    throw new RuntimeException("implement this")
-  }
-
-  int /* TODO 12: This method should have no users. Remove it. */ implementInt() {
-    throw new RuntimeException("implement this")
-  }
-
-  List<Integer> /* TODO 13: This method should have no users. Remove it. */ implementList() {
-    throw new RuntimeException("implement this")
-  }
 
 }
